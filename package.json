@@ -1,0 +1,31 @@
+{
+  "name": "awesome-javascript",
+  "version": "1.0.0",
+  "description": "手写原生js API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuiyiming1998/awesome-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuiyiming1998/awesome-javascript/issues"
+  },
+  "homepage": "https://github.com/cuiyiming1998/awesome-javascript#readme",
+  "devDependencies": {
+    "@types/node": "^18.8.5",
+    "@vitest/ui": "^0.18.0",
+    "lodash-es": "^4.17.21",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.0",
+    "typescript": "~4.2.3",
+    "vitest": "^0.18.0"
+  }
+}
