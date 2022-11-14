@@ -1,4 +1,4 @@
-import { isFunc } from '../shared/index.js'
+import { isFunc } from '../shared/is/index.js'
 import { PromiseState } from './promiseState.js'
 
 /**
