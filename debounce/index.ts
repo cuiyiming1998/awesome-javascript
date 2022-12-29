@@ -10,11 +10,11 @@
  *
  */
 export const debounce = (fn: Fn, delay: number) => {
-	let timer: NodeJS.Timeout | null = null
-	return function () {
-		if (timer) {
-			clearTimeout(timer)
-		}
-		timer = setTimeout(fn, delay)
-	}
+  let timer: NodeJS.Timeout | null = null
+  return function () {
+    if (timer) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(fn, delay)
+  }
 }

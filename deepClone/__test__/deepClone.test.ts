@@ -1,5 +1,5 @@
-import { describe, it, expect } from "vitest"
-import { deepClone } from ".."
+import { describe, it, expect } from 'vitest'
+import { deepClone } from '..'
 
 describe('deepClone', () => {
   it('happy path', () => {

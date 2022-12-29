@@ -11,15 +11,15 @@
  *
  */
 export const throttle = (fn: Fn, delay: number) => {
-	let valid: boolean = true
-	return function () {
-		if (!valid) {
-			return false
-		}
-		valid = false
-		setTimeout(() => {
-			fn()
-			valid = true
-		}, delay)
-	}
+  let valid = true
+  return function () {
+    if (!valid) {
+      return false
+    }
+    valid = false
+    setTimeout(() => {
+      fn()
+      valid = true
+    }, delay)
+  }
 }

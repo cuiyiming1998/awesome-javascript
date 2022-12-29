@@ -3,11 +3,11 @@ import { describe, expect, it, vi } from 'vitest'
 
 describe('throttle', () => {
   it('happy path', () => {
-    let count: number = 0
+    let count = 0
     const increaseCount = () => {
       count += 1
     }
-    let callCount: number = 0
+    let callCount = 0
     const throttled = throttle(increaseCount, 100)
     vi.useFakeTimers()
     const timer = setInterval(() => {
