@@ -9,12 +9,12 @@
  * @return z
  *
  */
-export const debounce = (fn: Fn, delay: number) => {
+export function debounce(fn: Fn, delay: number) {
   let timer: NodeJS.Timeout | null = null
   return function () {
-    if (timer) {
+    if (timer)
       clearTimeout(timer)
-    }
+
     timer = setTimeout(fn, delay)
   }
 }

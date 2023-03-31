@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { deepClone } from '..'
 
 describe('deepClone', () => {
@@ -6,8 +6,8 @@ describe('deepClone', () => {
     const obj = {
       name: 'test',
       obj2: {
-        age: 12
-      }
+        age: 12,
+      },
     }
 
     const copy = deepClone(obj)

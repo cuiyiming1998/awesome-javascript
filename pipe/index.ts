@@ -1,4 +1,4 @@
-export const pipe = (...funcs) => {
+export function pipe(...funcs) {
   function callback(input, func) {
     return func(input)
   }

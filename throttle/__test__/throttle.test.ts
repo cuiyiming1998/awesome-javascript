@@ -1,5 +1,5 @@
-import { throttle } from './../index'
 import { describe, expect, it, vi } from 'vitest'
+import { throttle } from './../index'
 
 describe('throttle', () => {
   it('happy path', () => {
@@ -13,9 +13,8 @@ describe('throttle', () => {
     const timer = setInterval(() => {
       callCount += 1
       throttled()
-      if (10 === callCount) {
+      if (callCount === 10)
         clearTimeout(timer)
-      }
     }, 10)
     vi.runAllTimers()
 

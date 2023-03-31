@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { curry } from '..'
 import { pipe } from '../../pipe'
 
@@ -39,7 +39,7 @@ describe('curry', () => {
       curriedAdd(1),
       curriedMultiply(2)(3),
       curriedAddMore(1)(2)(3),
-      curriedDivide(300)
+      curriedDivide(300),
     )
     const res = compute(3)
     expect(res).toBe(10)

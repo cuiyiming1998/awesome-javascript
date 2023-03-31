@@ -1,5 +1,5 @@
-import { debounce } from './../index'
 import { describe, expect, it, vi } from 'vitest'
+import { debounce } from './../index'
 
 describe('debounce', () => {
   it('happy path', () => {
@@ -13,9 +13,8 @@ describe('debounce', () => {
     const timer = setInterval(() => {
       callCount += 1
       debounced()
-      if (10 === callCount) {
+      if (callCount === 10)
         clearTimeout(timer)
-      }
     }, 10)
     vi.runAllTimers()
 

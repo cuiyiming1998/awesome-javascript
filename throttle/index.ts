@@ -10,12 +10,12 @@
  * @return z
  *
  */
-export const throttle = (fn: Fn, delay: number) => {
+export function throttle(fn: Fn, delay: number) {
   let valid = true
   return function () {
-    if (!valid) {
+    if (!valid)
       return false
-    }
+
     valid = false
     setTimeout(() => {
       fn()

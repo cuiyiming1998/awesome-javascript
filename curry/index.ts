@@ -10,7 +10,7 @@
  * @return Function
  *
  */
-export const curry = (func) => {
+export function curry(func) {
   // 存储需要柯里化的函数的参数数量
   const arity = func.length
   // 创建嵌套函数
@@ -23,7 +23,8 @@ export const curry = (func) => {
         // 参数数量 >= 应有参数数量
         // 认为已经触碰了边界, 则执行回调
         return func(...args)
-      } else {
+      }
+      else {
         // 没有触碰边界的话, 再创造一层新的嵌套
         return generateCurried(args)
       }

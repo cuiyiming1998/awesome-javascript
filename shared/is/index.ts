@@ -1,9 +1,9 @@
 // 判断是否是function
-export const isFunc = (fn: any): boolean => {
-  return 'function' === typeof fn
+export function isFunc(fn: any): boolean {
+  return typeof fn === 'function'
 }
 
 // 判断是否是object
-export const isObj = (obj: any): boolean => {
-  return 'object' === typeof obj
+export function isObj(obj: any): boolean {
+  return typeof obj === 'object'
 }

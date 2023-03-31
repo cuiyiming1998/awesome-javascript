@@ -32,7 +32,8 @@ export class myPromise {
     // 如果函数内部有throw的话 那么相当于reject
     try {
       fn(this.resolve, this.reject)
-    } catch (e) {
+    }
+    catch (e) {
       this.reject(e)
     }
   }
@@ -58,9 +59,9 @@ export class myPromise {
   // 在resolve/reject之后拿出来执行
   resolve = (value: any) => {
     // 如果是Pending状态 再修改
-    if (!this.isPending()) {
+    if (!this.isPending())
       return
-    }
+
     // 1. 修改状态
     this.setPromiseState(PromiseState.FULFILLED)
     // 2. 修改result
@@ -72,9 +73,9 @@ export class myPromise {
   }
 
   reject = (reason: any) => {
-    if (!this.isPending()) {
+    if (!this.isPending())
       return
-    }
+
     // 1. 修改状态
     this.setPromiseState(PromiseState.REJECTED)
     // 2. 修改result
@@ -86,22 +87,20 @@ export class myPromise {
   }
 
   executeFulFilledCallbacks = () => {
-    while (this.onFulFilledCallbacks.length) {
+    while (this.onFulFilledCallbacks.length)
       this.onFulFilledCallbacks.shift()(this.promiseResult)
-    }
   }
 
   executeRejectedCallbacks = () => {
-    while (this.onRejectedCallbacks.length) {
+    while (this.onRejectedCallbacks.length)
       this.onRejectedCallbacks.shift()(this.promiseResult)
-    }
   }
 
   then(onFulfilled?: any, onRejected?: any): myPromise {
     // 校验两个参数, 应该为function
-    !isFunc(onFulfilled) && (onFulfilled = (val) => val)
-    !isFunc(onRejected) &&
-      (onRejected = (reason) => {
+    !isFunc(onFulfilled) && (onFulfilled = val => val)
+    !isFunc(onRejected)
+      && (onRejected = (reason) => {
         throw reason
       })
 
@@ -115,7 +114,8 @@ export class myPromise {
           // 如果返回值是一个promise
           // 直接调用他的.then
           res.then(resolve, reject)
-        } else {
+        }
+        else {
           // 如果不是 那么resolve
           resolve(res)
         }
@@ -123,9 +123,11 @@ export class myPromise {
 
       if (PromiseState.FULFILLED === this.promiseState) {
         p(onFulfilled)
-      } else if (PromiseState.REJECTED === this.promiseState) {
+      }
+      else if (PromiseState.REJECTED === this.promiseState) {
         p(onRejected)
-      } else if (PromiseState.PENDING === this.promiseState) {
+      }
+      else if (PromiseState.PENDING === this.promiseState) {
         this.onFulFilledCallbacks.push(p.bind(this, onFulfilled))
         this.onRejectedCallbacks.push(p.bind(this, onRejected))
       }
@@ -160,9 +162,10 @@ export class myPromise {
             },
             (err) => {
               reject(err)
-            }
+            },
           )
-        } else {
+        }
+        else {
           // 如果不是promise 则作为resolve
           addData(index, promise)
         }
@@ -178,4 +181,4 @@ const promise = new myPromise((resolve, reject) => {
   setTimeout(() => {
     resolve(1)
   }, 3000)
-}).then((res) => console.log('res', res))
+}).then(res => console.log('res', res))

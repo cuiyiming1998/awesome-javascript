@@ -33,7 +33,7 @@ describe('Promise', () => {
       },
       (err) => {
         a = err
-      }
+      },
     )
 
     expect(a).toBe(1)
